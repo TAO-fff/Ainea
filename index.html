@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>BeautySalon Ainea/アイネア</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Noto+Sans+JP:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- adobe font -->
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "ryw1yuc",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className =
+              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- slick -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="header" id="home">
+      <div class="header-mv">
+        <picture>
+          <source
+            srcset="./img/spMV-100.jpg"
+            media="(max-width: 767px)"
+            class="mv-img"
+          />
+          <img src="./img/MV-100-b.jpg" alt="" class="mv-img" />
+          <!-- <div class="header-copy">
+          <p>『今日の私が一番好き』</p>
+        </div> -->
+        </picture>
+        <div class="header-nav">
+          <ul class="header-nav-list">
+            <li class="header-nav-item nav-btn"><a href="#about">About</a></li>
+            <li class="header-nav-item nav-btn"><a href="#menu">Menu</a></li>
+            <li class="header-nav-item nav-btn">
+              <a href="#profile">Profile</a>
+            </li>
+            <li class="header-nav-item nav-btn">
+              <a href="#access">Access</a>
+            </li>
+            <li class="header-nav-item nav-btn">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- hum メニュー -->
+        <div class="sp-menu-btn"><span></span></div>
+        <nav class="sp-header-nav">
+          <ul class="sp-header-nav-list">
+            <li class="sp-header-nav-item nav-btn">
+              <a href="#about">About</a>
+            </li>
+            <li class="sp-header-nav-item nav-btn">
+              <a href="#menu">Menu</a>
+            </li>
+            <li class="sp-header-nav-item nav-btn">
+              <a href="#profile">Profile</a>
+            </li>
+            <li class="sp-header-nav-item nav-btn">
+              <a href="#access">Access</a>
+            </li>
+            <li class="sp-header-nav-item nav-btn">
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <h1 class="header-logo">
+        <img src="./img/logo-orage-05.png" alt="" />
+      </h1>
+    </header>
+
+    <!-- scroll -->
+    <div class="scroll">
+      <div class="scroll-down">
+        <span></span>
+        <p>Scroll</p>
+      </div>
+    </div>
+
+    <!-- policy -->
+    <section class="policy">
+      <div class="container">
+        <div class="policy-group">
+          <div class="policy-group-left">
+            <img src="./img/policy-img-100.jpg" alt="" />
+          </div>
+          <div class="policy-group-right">
+            <span>
+              <p class="policy-ttl scroll-up-rightside">
+                いつもの『何気ない1日』に<br />
+                ヘアメイクで新しい風を感じてほしい。
+              </p>
+            </span>
+            <span>
+              <p class="policy-txt scroll-up-rightside">
+                <span>いつもの『何気ない1日』の中で</span
+                ><span class="mobile-br"></span><br />
+                <span>あなたの表情や印象を今よりも『少し特別』にしてくれる</span
+                ><span class="mobile-br"></span><br />
+                <span>それが、ファッションやヘアメイクが持つパワーです。</span
+                ><span class="pc-br"></span>
+              </p>
+              <p class="policy-txt scroll-up-rightside">
+                <span
+                  >新しいヘアメイクに触れたり、似合うスタイルを知ることで</span
+                ><span class="mobile-br"></span><br />
+                <span>日々の『何気ない1日』が</span
+                ><span class="mobile-br"></span><br />
+                <span>ほんの少し『特別なもの』に変わる</span><br />
+                <span
+                  >そんな新しい風を吹き込む場所がAinea（アイネア）です。</span
+                ><span class="pc-br"></span>
+              </p>
+            </span>
+            <div class="policy-group-sp-img">
+              <img src="./img/policy-img-100.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- origin -->
+    <section class="origin">
+      <div class="container origin-text-area">
+        <div class="origin-txt-box">
+          <p class="origin-txt scroll-up">
+            <span
+              >Ainea（アイネア）は<span class="pc-br"></span
+              ><span class="mobile-br"></span
+            ></span>
+            <span
+              >『Air（空気）』 ＋『Nea（新しい）』を<span class="pc-br"></span
+              ><span class="mobile-br"></span>組み合わせて名づけました。</span
+            >
+            <span></span>
+          </p>
+          <p class="origin-txt scroll-up">
+            <span
+              >スワヒリ語で『それは広がる』<span class="pc-br"></span
+              >という意味もあり</span
+            >
+            <span
+              >ヘアメイクを通じて新しい風を<span class="pc-br"></span
+              ><span class="mobile-br"></span>感じていただくことで</span
+            >
+            <span>あなたのこれからの<span class="pc-br"></span></span>
+            <span
+              >『可能性が広がる』 『人生が広がる』<span class="pc-br"></span>
+              <span class="mobile-br"></span
+              >という願いが込められています。</span
+            >
+          </p>
+          <p class="origin-txt scroll-up">
+            <span
+              >サロンで、ワクワクする体験を<span class="mobile-br"></span
+              >一緒に楽しみましょう。</span
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- back-img -->
+    <section class="back-img">
+      <!-- <div class="back-img-top">
+          <img src="./img/back-img1.jpeg" alt="" class="" />
+        </div> -->
+    </section>
+
+    <!-- about -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-ttl">
+          <div class="section-ttl-en">
+            <span></span>
+            <p>About</p>
+          </div>
+
+          <div class="section-ttl-ja"><p>Aineaの特徴</p></div>
+        </h2>
+
+        <div class="about-feature-box-area float-trigger">
+          <div class="about-feature-img-box float-down">
+            <div class="feature-img-topright scroll-down">
+              <img src="./img/origin-img-topright-100.jpg" alt="" />
+            </div>
+            <div class="feature-img-downright scroll-down">
+              <img src="./img/origin-img-downright-100.jpg" alt="" />
+            </div>
+            <div class="feature-img-left scroll-left">
+              <img src="./img/origin-img-left-100.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="about-feature-txt-box float-up">
+            <div class="feature-item">
+              <p class="feature-ttl">
+                理論でわかる『似合う』<br />
+                『なりたい自分』に近づく方法
+              </p>
+              <p class="feature-txt">
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+              </p>
+            </div>
+
+            <div class="feature-item">
+              <p class="feature-ttl">
+                元美容師だからできる<br />
+                実践型ヘアメイクレッスン
+              </p>
+              <p class="feature-txt">
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+                テキスト　テキスト　テキスト　テキスト
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- style -->
+    <section class="style">
+      <div class="container">
+        <h2 class="section-ttl">
+          <div class="section-ttl-en">
+            <span></span>
+            <p>Before & After</p>
+          </div>
+
+          <div class="section-ttl-ja"><p>毎日を少し特別に</p></div>
+        </h2>
+
+        <div class="style-img-area">
+          <div class="style-img-box">
+            <div class="style-item">
+              <img src="./img/before_after -02.png" alt="" />
+              <div class="style-item-txt">
+                <p># ナチュラルメイク</p>
+                <p># 透明感</p>
+                <p># 好印象</p>
+                <p># 上品</p>
+                <p># トータル診断＋メイクレッスン</p>
+              </div>
+            </div>
+
+            <div class="style-item">
+              <img src="./img/before_after_clear.png" alt="" />
+              <div class="style-item-txt">
+                <p># ベースメイク</p>
+                <p># 透明感</p>
+                <p># 好印象</p>
+                <p># -10歳メイク</p>
+                <p># トータル診断＋メイクレッスン</p>
+              </div>
+            </div>
+
+            <div class="style-item">
+              <img src="./img/before_after_cute.png" alt="" />
+              <div class="style-item-txt">
+                <p># ツヤ肌</p>
+                <p># 華やか</p>
+                <p># キュート</p>
+                <p># トータル診断＋メイクレッスン</p>
+              </div>
+            </div>
+
+            <div class="style-item">
+              <img src="./img/before_after -02.png" alt="" />
+              <div class="style-item-txt">
+                <p># ナチュラルメイク</p>
+                <p># 透明感</p>
+                <p># 好印象</p>
+                <p># 上品</p>
+                <p># トータル診断＋メイクレッスン</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- menu -->
+    <section class="menu" id="menu">
+      <div class="container">
+        <h2 class="section-ttl">
+          <div class="section-ttl-en">
+            <span></span>
+            <p>Menu</p>
+          </div>
+
+          <div class="section-ttl-ja"><p>お悩み別メニュー</p></div>
+        </h2>
+        <div class="menu-box">
+          <ul class="menu-list">
+            <li class="menu-item" id="menu1">
+              <a href="#"><p>自分の印象に似合うメイクが知りたい</p></a>
+            </li>
+
+            <li class="menu-item" id="menu2">
+              <a href="#"><p>なりたい自分に近づくメイクが知りたい</p></a>
+            </li>
+          </ul>
+
+          <ul class="menu-list">
+            <li class="menu-item" id="menu3">
+              <a href="#"><p>メイクに苦手意識がある</p></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- profile -->
+    <section class="profile" id="profile">
+      <div class="container">
+        <h2 class="section-ttl">
+          <div class="section-ttl-en">
+            <span></span>
+            <p>Profile</p>
+          </div>
+          <div class="section-ttl-ja"><p>ごあいさつ</p></div>
+        </h2>
+
+        <div class="profile-box float-trigger">
+          <div class="profile-left float-up">
+            <div class="profile-txt">
+              テキスト　テキスト　テキスト　テキスト
+              テキスト　テキスト　テキスト　テキスト
+              テキスト　テキスト　テキスト　テキスト
+              テキスト　テキスト　テキスト　テキスト
+              テキスト　テキスト　テキスト　テキスト
+              テキスト　テキスト　テキスト　テキスト
+            </div>
+            <div class="profile-btn">
+              <div class="btn">
+                <a href="#"><p>Read more</p></a>
+              </div>
+            </div>
+          </div>
+          <div class="profile-right float-down">
+            <img src="./img/profile-img.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- access -->
+    <section class="access" id="access">
+      <div class="container">
+        <h2 class="section-ttl">
+          <div class="section-ttl-en">
+            <span></span>
+            <p>Access</p>
+          </div>
+          <div class="section-ttl-ja"><p>店舗情報</p></div>
+        </h2>
+
+        <div class="access-box">
+          <div class="access-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d12967.73806088359!2d139.665757!3d35.653985!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzXCsDM5JzE0LjQiTiAxMznCsDM5JzU2LjciRQ!5e0!3m2!1sja!2sjp!4v1727353154069!5m2!1sja!2sjp"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="access-txt">
+            <p>
+              東京・下北沢駅から徒歩5分のプライベートサロンです。<br />
+              住所の詳細はご予約後にお伝えしております。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-container">
+        <h2 class="section-ttl"></h2>
+        <div class="section-ttl-en">
+          <span></span>
+          <p>Contact</p>
+        </div>
+        <div class="section-ttl-ja"><p>お問い合わせ</p></div>
+
+        <div class="contact-area">
+          <div class="contact-area-txt-box">
+            <div class="contact-txt">
+              <p>
+                メイクの力で『何気ない1日』を<span class="mobile-br"></span>
+                『少し特別』に変えるお手伝いいたします。<span
+                  class="pc-br"
+                ></span
+                ><br /><br />
+                メイクが初めての方・苦手な方も<span class="mobile-br"></span>
+                お気軽にご相談ください。<span class="pc-br"></span><br />
+                <a href="#" class="under-line">よくある質問</a
+                >もご用意してます。
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-btn-area">
+            <div class="contact-btn">
+              <div class="btn-brown">
+                <a href="#"><p>空席確認・予約</p></a>
+              </div>
+            </div>
+            <div class="contact-btn">
+              <div class="btn-brown">
+                <a href="#"><p>お問い合わせ</p></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-nav">
+          <ul class="footer-nav-list">
+            <li class="footer-nav-item nav-btn"><a href="about">About</a></li>
+            <li class="footer-nav-item nav-btn"><a href="menu">Menu</a></li>
+            <li class="footer-nav-item nav-btn">
+              <a href="profile">Profile</a>
+            </li>
+            <li class="footer-nav-item nav-btn"><a href="access">Access</a></li>
+            <li class="footer-nav-item nav-btn">
+              <a href="contact">Contact</a>
+            </li>
+          </ul>
+          <div class="footer-sns-area">
+            <div class="sns-icon">
+              <a href="#">
+                <img src="./img/icon-instagram.png" alt="" />
+              </a>
+            </div>
+            <div class="sns-icon">
+              <a href="#"><img src="./img/icon-twitter.png" alt="" /> </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-logo-area">
+          <img src="./img/logo-orage-05.png" alt="" />
+          <div class="copy-right">
+            <p>©Ainea. All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="mouse-stalker"></div>
+    <div class="top-btn-area">
+      <a href="#home"
+        ><div class="top-btn"><span></span></div
+      ></a>
+    </div>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+
+    <!-- js -->
+    <script src="./js/header-footer-common.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
