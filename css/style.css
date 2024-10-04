@@ -164,11 +164,11 @@ body {
   }
 
   .section-ttl-en {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .section-ttl-ja {
-    font-size: 28px;
+    font-size: 30px;
     margin-top: 25px;
   }
 
@@ -1241,7 +1241,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 15px 0 15px;
+  padding: 50px 30px 0 30px;
 }
 
 .access-map {
@@ -1260,7 +1260,7 @@ iframe {
 .access-txt p {
   display: block;
   font-family: Noto sans jp;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 2;
 }
 
