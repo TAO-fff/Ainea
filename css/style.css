@@ -104,7 +104,8 @@ body {
   display: block; /* PCでは改行する */
 }
 
-.mobile-br {
+.tab-br,
+.sp-br {
   display: none; /* PCでは改行しない */
 }
 
@@ -145,7 +146,7 @@ body {
     display: none; /* モバイルでは改行しない */
   }
   
-  .mobile-br {
+  .tab-br {
     display: block; /* モバイルでは改行する */
   }
 
@@ -470,6 +471,9 @@ body {
   width: 50%;
   padding-top: 20px;
   margin-left: -65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .policy-ttl {
@@ -478,14 +482,16 @@ body {
   padding-bottom: 35px;
   margin-top: -20px;
   letter-spacing: -1px;
+  text-align: center;
 }
 
 .policy-txt {
   font-family: "Noto sans jp";
   font-size: 16px;
-  line-height: 2;
+  line-height: 3.6;
   letter-spacing: -0.8px;
   margin-top: 30px;
+  text-align: center;
 }
 
 .policy-txt span {
@@ -526,6 +532,7 @@ body {
   .policy-txt {
     text-align: center;
     padding: 0 10px;
+    line-height: 3.2;
   }
 
   .policy-group-sp-img {
@@ -1113,12 +1120,19 @@ body {
   }
 
   .style-item {
-    width: 80%;
+    width: 95%;
     filter: brightness(1.07);
   }
 
   .style-item:hover img {
     filter: none;
+  }
+
+  .style-item-txt p {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 4px 8px;
+    margin: 5px;
   }
 
   .menu-list {
