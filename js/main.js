@@ -56,53 +56,61 @@ $(window).on('scroll', { passive: true }, function () {
 
 /*********** profile spアニメーション ***********/
 document.addEventListener("DOMContentLoaded", function() {
-  const floatTriggers = document.querySelectorAll('.float-trigger');
-
-  function handleScroll() {
-      floatTriggers.forEach(trigger => {
-          const floatUp = trigger.querySelector('.float-up');
-          const floatDown = trigger.querySelector('.float-down');
-          const rect = trigger.getBoundingClientRect();
-
-          // ビューポート内に入ったら
-          if (rect.top <= window.innerHeight) {
-              if (floatDown) {
-                  floatDown.style.display = 'flex'; // profile-rightを表示
-                  setTimeout(() => {
-                      floatDown.classList.add('off'); // profile-rightに「off」クラスを追加
-                      floatDown.style.display = 'none'; // 表示をnoneにする
-                  }, 4000); // floatDownを4秒表示
-              }
-
-              if (floatUp) {
-                  floatUp.style.opacity = '0'; // 最初にopacityを0に設定
-                  setTimeout(() => {
-                      floatUp.style.opacity = '1'; // opacityを1に戻す
-                      floatUp.style.visibility = 'visible'; // visibilityをvisibleに
-                      floatUp.classList.add('on'); // 4.1秒後にonクラスを追加
-                  }, 4100); // 4.1秒後にfloatUpを表示
-              }
-          }
-      });
-  }
-
-  // スクロールイベントにハンドラを追加
-  window.addEventListener('scroll', handleScroll);
-
-  // リサイズ時の初期状態を設定
-  function handleResize() {
-      floatTriggers.forEach(trigger => {
-          const floatUp = trigger.querySelector('.float-up');
-          const floatDown = trigger.querySelector('.float-down');
-
-          if (floatUp) {
-              floatUp.style.opacity = '1'; // about-feature-txt-boxを表示
-              floatUp.style.visibility = 'visible'; // visibilityもvisibleにする
-          }
-
-      });
-  }
-
-  // 初期状態の設定
-  handleResize();
-});
+    const floatTriggers = document.querySelectorAll('.float-trigger');
+  
+    function handleScroll() {
+        if (window.innerWidth <= 767) { // 画面幅が767px以下の場合のみアニメーションを適用
+            floatTriggers.forEach(trigger => {
+                const floatUp = trigger.querySelector('.float-up');
+                const floatDown = trigger.querySelector('.float-down');
+                const rect = trigger.getBoundingClientRect();
+  
+                // ビューポート内に入ったら
+                if (rect.top <= window.innerHeight) {
+                    if (floatDown) {
+                        floatDown.style.display = 'flex'; // profile-rightを表示
+                        setTimeout(() => {
+                            floatDown.classList.add('off'); // profile-rightに「off」クラスを追加
+                            floatDown.style.display = 'none'; // 表示をnoneにする
+                        }, 4000); // floatDownを4秒表示
+                    }
+  
+                    if (floatUp) {
+                        floatUp.style.opacity = '0'; // 最初にopacityを0に設定
+                        setTimeout(() => {
+                            floatUp.style.opacity = '1'; // opacityを1に戻す
+                            floatUp.style.visibility = 'visible'; // visibilityをvisibleに
+                            floatUp.classList.add('on'); // 4.1秒後にonクラスを追加
+                        }, 4100); // 4.1秒後にfloatUpを表示
+                    }
+                }
+            });
+        }
+    }
+  
+    // スクロールイベントにハンドラを追加
+    window.addEventListener('scroll', handleScroll);
+  
+    // リサイズ時の初期状態を設定
+    function handleResize() {
+        if (window.innerWidth <= 767) { // 画面幅が767px以下の場合のみ初期状態を設定
+            floatTriggers.forEach(trigger => {
+                const floatUp = trigger.querySelector('.float-up');
+                const floatDown = trigger.querySelector('.float-down');
+  
+                if (floatUp) {
+                    floatUp.style.opacity = '1'; // about-feature-txt-boxを表示
+                    floatUp.style.visibility = 'visible'; // visibilityもvisibleにする
+                }
+  
+            });
+        }
+    }
+  
+    // 初期状態の設定
+    handleResize();
+  
+    // リサイズ時にもhandleResizeを呼び出す
+    window.addEventListener('resize', handleResize);
+  });
+  
