@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         setTimeout(() => {
                             floatDown.classList.add('off'); // profile-rightに「off」クラスを追加
                             floatDown.style.display = 'none'; // 表示をnoneにする
-                        }, 4000); // floatDownを4秒表示
+                        }, 2700); // floatDownを4秒表示
                     }
   
                     if (floatUp) {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             floatUp.style.opacity = '1'; // opacityを1に戻す
                             floatUp.style.visibility = 'visible'; // visibilityをvisibleに
                             floatUp.classList.add('on'); // 4.1秒後にonクラスを追加
-                        }, 4100); // 4.1秒後にfloatUpを表示
+                        }, 2900); // 4.1秒後にfloatUpを表示
                     }
                 }
             });
