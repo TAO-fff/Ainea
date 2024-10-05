@@ -1,20 +1,25 @@
 
 
 /*********** policy・originテキスト　フェードイン ***********/
-$(window).scroll(function() {
+$(window).scroll(function () {
     const scrollAnimationElm = document.querySelectorAll('.scroll-up-rightside, .scroll-up');
+    let hasAnimated = false; // アニメーション実行済みかどうかを追跡
+
     const scrollAnimationFunk = function () {
         for (let i = 0; i < scrollAnimationElm.length; i++) {
             let triggerMargin = 80; // トリガーのマージン
             const elementTop = scrollAnimationElm[i].getBoundingClientRect().top;
 
             // 要素が視界に入ったらアニメーションを追加
-            if (window.innerHeight > elementTop + triggerMargin) {
+            if (window.innerHeight > elementTop + triggerMargin && !hasAnimated) {
                 scrollAnimationElm[i].classList.add('on');
-            } else {
-                // 要素が視界から出たらアニメーションをリセット
-                scrollAnimationElm[i].classList.remove('on');
-            }
+            } 
+        }
+
+        // すべての要素にアニメーションが実行された場合、イベントリスナーを削除
+        if (!hasAnimated && Array.from(scrollAnimationElm).every(elm => elm.classList.contains('on'))) {
+            hasAnimated = true; // アニメーション実行済み
+            $(window).off('scroll', scrollAnimationFunk); // スクロールイベントリスナーを削除
         }
     }
 
@@ -25,92 +30,88 @@ $(window).scroll(function() {
 });
 
 
-/*********** about  img（上・左・右から）***********/
+
+/*/*********** about img（上・左・右から）***********/
 // イベントリスナーの追加をpassiveに設定
 $(window).on('scroll', { passive: true }, function () {
-  var scrollAnimationElm = document.querySelectorAll('.scroll-down, .scroll-left, .scroll-right');
-  var delay = 0;
-
-  var scrollAnimationFunc = function () {
-    for (var i = 0; i < scrollAnimationElm.length; i++) {
-      var triggerMargin = 100;
-      var elementTop = scrollAnimationElm[i].getBoundingClientRect().top;
-      var elementBottom = scrollAnimationElm[i].getBoundingClientRect().bottom;
-
-      // アニメーションの実行
-      if (window.innerHeight > elementTop + triggerMargin) {
-        scrollAnimationElm[i].classList.add('on');
-      }
-      if (elementBottom < 0 || elementTop > window.innerHeight) {
-        scrollAnimationElm[i].classList.remove('on');
-      }
-    }
-  };
-
-  // sp about & sp prof 
-  scrollAnimationFunc();
-  $(window).on('scroll', scrollAnimationFunc);
-});
-
-
-
-/*********** profile spアニメーション ***********/
-document.addEventListener("DOMContentLoaded", function() {
-    const floatTriggers = document.querySelectorAll('.float-trigger');
+    var scrollAnimationElm = document.querySelectorAll('.scroll-down, .scroll-left, .scroll-right');
+    var aboutFeatureBoxArea = document.querySelector('.about-feature-box-area');
+    var aboutFeatureImgBox = document.querySelector('.about-feature-img-box'); // about-feature-img-boxを取得
+    var aboutFeatureTxtBox = document.querySelector('.about-feature-txt-box'); // about-feature-txt-boxを取得
+    var hasAnimated = false; // アニメーションが実行されたかどうかを追跡
   
-    function handleScroll() {
-        if (window.innerWidth <= 767) { // 画面幅が767px以下の場合のみアニメーションを適用
-            floatTriggers.forEach(trigger => {
-                const floatUp = trigger.querySelector('.float-up');
-                const floatDown = trigger.querySelector('.float-down');
-                const rect = trigger.getBoundingClientRect();
+    var scrollAnimationFunc = function () {
+      var elementTop = aboutFeatureBoxArea.getBoundingClientRect().top;
   
-                // ビューポート内に入ったら
-                if (rect.top <= window.innerHeight) {
-                    if (floatDown) {
-                        floatDown.style.display = 'flex'; // profile-rightを表示
-                        setTimeout(() => {
-                            floatDown.classList.add('off'); // profile-rightに「off」クラスを追加
-                            floatDown.style.display = 'none'; // 表示をnoneにする
-                        }, 2700); // floatDownを4秒表示
-                    }
+      // スクロール位置がabout-feature-box-areaに到達したら
+      if (elementTop < window.innerHeight && !hasAnimated) {
+        hasAnimated = true; // アニメーション実行済みとする
   
-                    if (floatUp) {
-                        floatUp.style.opacity = '0'; // 最初にopacityを0に設定
-                        setTimeout(() => {
-                            floatUp.style.opacity = '1'; // opacityを1に戻す
-                            floatUp.style.visibility = 'visible'; // visibilityをvisibleに
-                            floatUp.classList.add('on'); // 4.1秒後にonクラスを追加
-                        }, 2900); // 4.1秒後にfloatUpを表示
-                    }
-                }
-            });
+        // 各要素に.onクラスを付与
+        for (var i = 0; i < scrollAnimationElm.length; i++) {
+          scrollAnimationElm[i].classList.add('on');
+          
+          // アニメーション終了時に非表示にする
+          scrollAnimationElm[i].addEventListener('transitionend', function () {
+            // 767px以下の場合にabout-feature-img-boxを非表示にする
+            if (window.innerWidth <= 767) {
+              setTimeout(function() {
+                aboutFeatureImgBox.style.display = 'none'; // 要素を非表示
+  
+                // about-feature-txt-boxのopacityを1にする
+                aboutFeatureTxtBox.style.opacity = '1'; // 初期値が0の場合
+              }, 2100); // 2.1秒後に非表示
+            }
+          }, { once: true }); // 一度だけ実行
         }
-    }
   
-    // スクロールイベントにハンドラを追加
-    window.addEventListener('scroll', handleScroll);
+        // スクロールのイベントリスナーを削除
+        $(window).off('scroll', scrollAnimationFunc);
+      }
+    };
   
-    // リサイズ時の初期状態を設定
-    function handleResize() {
-        if (window.innerWidth <= 767) { // 画面幅が767px以下の場合のみ初期状態を設定
-            floatTriggers.forEach(trigger => {
-                const floatUp = trigger.querySelector('.float-up');
-                const floatDown = trigger.querySelector('.float-down');
-  
-                if (floatUp) {
-                    floatUp.style.opacity = '1'; // about-feature-txt-boxを表示
-                    floatUp.style.visibility = 'visible'; // visibilityもvisibleにする
-                }
-  
-            });
-        }
-    }
-  
-    // 初期状態の設定
-    handleResize();
-  
-    // リサイズ時にもhandleResizeを呼び出す
-    window.addEventListener('resize', handleResize);
+    // スクロールイベントの初期実行
+    scrollAnimationFunc();
+    $(window).on('scroll', scrollAnimationFunc);
   });
   
+  
+  
+  
+
+
+// /*********** profile spアニメーション ***********/
+// /*********** profile spアニメーション ***********/
+$(window).on('scroll', { passive: true }, function () {
+    var profileBox = document.querySelector('.profile-box');
+    var profileRight = document.querySelector('.profile-right'); 
+    var profileLeft = document.querySelector('.profile-left'); 
+    var hasAnimated = false; // アニメーションが実行されたかどうかを追跡
+
+    var scrollAnimationFunc = function () {
+        var elementTop = profileBox.getBoundingClientRect().top;
+
+        // スクロール位置がprofile-boxに到達したら
+        if (elementTop < window.innerHeight && !hasAnimated) {
+            hasAnimated = true; // アニメーション実行済みとする
+
+            // profile-rightの表示（初期状態がdisplay: noneの場合）
+            profileRight.style.display = 'block'; // 表示
+
+            // 2.1秒後にprofile-leftのopacityを1にし、profile-rightにoffクラスを付与
+            setTimeout(function() {
+                if (window.innerWidth <= 767) {
+                    profileLeft.style.opacity = '1'; // 初期値が0の場合
+                    profileRight.classList.add('off'); // offクラスを付与
+                }
+            }, 2100); // 2.1秒後に実行
+
+            // スクロールのイベントリスナーを削除
+            $(window).off('scroll', scrollAnimationFunc);
+        }
+    };
+
+    // スクロールイベントの初期実行
+    scrollAnimationFunc();
+    $(window).on('scroll', scrollAnimationFunc);
+});
