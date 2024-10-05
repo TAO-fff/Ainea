@@ -172,17 +172,6 @@ body {
     font-size: 30px;
     margin-top: 25px;
   }
-
-  .float-up.on {
-    opacity: 1;
-    visibility: visible; /* スペルを修正 */
-}
-
-.float-down.off  {
-  display: none;
-  visibility: hidden;
-}
-
 }
 
 /***** header *****/
@@ -816,6 +805,7 @@ body {
     width: 100%;
     top: 50%;
     transition: opacity .8s ease-in-out;
+    background-color: #fff;
   }
   
   .feature-img-topright {
@@ -906,7 +896,6 @@ body {
     width: 100%;
     padding: 0 15px;
     opacity: 0; /* 初期状態で非表示 */
-    visibility: hidden; /* 初期状態で非表示 */
     transition: opacity .3s ease-in-out; /* アニメーション用のトランジション */
   }
   
@@ -1239,9 +1228,12 @@ body {
     margin-left: 0%;
     display: flex;
     justify-content: flex-end;   
-     transition: .3s ease-in-out;
-
+     transition: .8s ease-in-out;
   }
+
+  .profile-right.off {
+  opacity: 0;  
+}
 
 
 
